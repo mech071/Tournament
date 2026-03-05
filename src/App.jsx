@@ -88,7 +88,7 @@ function App() {
 
     console.log(finalPicks)
     try {
-      const res = await fetch("http://localhost:3000/vote", {
+      const res = await fetch("https://exciting-grace-production.up.railway.app/vote", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
