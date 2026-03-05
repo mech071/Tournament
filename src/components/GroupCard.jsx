@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import Options from "./options"
+import Options from "./Options"
 
 const GroupCard = ({ group, artists, onNext, onPrev, onSubmit }) => {
 
