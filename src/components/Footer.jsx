@@ -6,7 +6,7 @@ const Footer = () => {
         <span>© {new Date().getFullYear()} MiliGrammys</span>
 
         <span className="text-zinc-500">
-          <a href="https://github.com/mech071">Github</a>
+          <a href="https://github.com/mech071" target="_blank">Github</a>
 
         </span>
 
