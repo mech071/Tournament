@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react"
 import Options from "./Options"
-
 const GroupCard = ({ group, artists, onNext, onPrev, onSubmit }) => {
-
     const [selected, setSelected] = useState([])
-
     const handleSelect = (id) => {
         if (selected.includes(id)) {
             setSelected(selected.filter(x => x !== id))
