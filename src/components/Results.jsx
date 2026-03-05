@@ -6,7 +6,7 @@ const Results = () => {
     useEffect(() => {
         const fetchResults = async () => {
             try {
-                const res = await fetch("ttps://exciting-grace-production.up.railway.app/results")
+                const res = await fetch("https://exciting-grace-production.up.railway.app/results")
                 const data = await res.json()
                 setResults(data)
             } catch (err) {
