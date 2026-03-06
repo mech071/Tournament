@@ -78,9 +78,12 @@ function App() {
   }
 
   const [submitted, setSubmitted] = useState(false)
-
+  const [loading, setLoading] = useState(false)
 
   const submitPicks = async (group, selected) => {
+    if (loading) return
+    setLoading(true)
+
     const finalPicks = {
       ...picks,
       [group]: selected
@@ -104,6 +107,7 @@ function App() {
 
     } catch (err) {
       console.error(err)
+      setLoading(false)
     }
   }
 
@@ -172,6 +176,7 @@ function App() {
                     onNext={nextGroup}
                     onPrev={prevGroup}
                     onSubmit={submitPicks}
+                    loading={loading}
                   />
 
                 </div>
