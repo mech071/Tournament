@@ -103,6 +103,7 @@ function App() {
       console.log(data)
 
       setSubmitted(true)
+      setLoading(false)
       localStorage.setItem("voted", "true")
 
     } catch (err) {
