@@ -113,7 +113,7 @@ function App() {
   }
 
   const [picks, setPicks] = useState({})
-
+  const votingClosed = true
   return (
     <>
       <Navbar />
@@ -147,7 +147,13 @@ function App() {
           path="/dashboard"
           element={
             <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 md:px-0 overflow-x-hidden bg-[linear-gradient(180deg,#fafafa_0%,#f4f4f5_50%,#fafafa_100%)]">
-              {submitted ? (
+              {votingClosed ? (
+                <div className="bg-white p-6 md:p-10 rounded-lg shadow-xl text-center w-full max-w-md">
+                  <h2 className="text-xl font-semibold text-zinc-800">
+                    Voting has closed
+                  </h2>
+                </div>
+              ) : submitted ? (
                 <div className="bg-white p-6 md:p-10 rounded-lg shadow-xl text-center w-full max-w-md ease-out animate-[fadeIn_0.6s]">
                   <h2 className="text-xl font-semibold text-zinc-800">
                     Vote submitted successfully
@@ -163,6 +169,7 @@ function App() {
                       <span>Group {currentGroup + 1}</span>
                       <span>{groups.length} total</span>
                     </div>
+
                     <div className="h-2 bg-zinc-200 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-zinc-900 transition-all duration-300"
@@ -179,16 +186,13 @@ function App() {
                     onSubmit={submitPicks}
                     loading={loading}
                   />
-
                 </div>
               )}
             </div>
           }
         />
-
         <Route path="/results" element={<Results />} />
-
-      </Routes>
+      </Routes >
       <Footer />
     </>
   )
