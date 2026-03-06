@@ -43,7 +43,7 @@ function App() {
   }
 
   useEffect(() => {
-    const voted = localStorage.getItem("voted")
+    const voted = localStorage.getItem("voted_r2")
     if (voted) {
       setSubmitted(true)
     }
@@ -80,7 +80,7 @@ function App() {
 
       setSubmitted(true)
       setLoading(false)
-      localStorage.setItem("voted", "true")
+      localStorage.setItem("voted_r2", "true")
 
     } catch (err) {
       console.error(err)
