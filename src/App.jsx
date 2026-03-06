@@ -172,7 +172,15 @@ function App() {
             </div>
           }
         />
-        <Route path="/results" element={<Results />} />
+        <Route
+          path="/results"
+          element={submitted ? <Results /> : <>
+            <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 md:px-0 bg-[linear-gradient(180deg,#fafafa_0%,#f4f4f5_50%,#fafafa_100%)]">
+              <div className="bg-white p-6 md:p-10 rounded-lg shadow-xl text-center w-full max-w-md">Submit your vote first.
+              </div>
+            </div>
+          </>}
+        />
       </Routes >
       <Footer />
     </>
