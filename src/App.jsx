@@ -9,51 +9,27 @@ function App() {
   const groups = [
     {
       group: "A",
-      artists: ["The Weeknd", "Shawn Mendes", "Arijit Singh", "Harry Styles"]
+      artists: ["Arijit Singh", "The Weeknd", "Taylor Swift", "Billie Eilish"]
     },
     {
       group: "B",
-      artists: ["Taylor Swift", "Billie Eilish", "Sabrina Carpenter", "Olivia Rodrigo"]
+      artists: ["Dua Lipa", "Lady Gaga", "Eminem", "Kendrick Lamar"]
     },
     {
       group: "C",
-      artists: ["Lady Gaga", "Dua Lipa", "Camilla Cabello", "Adele"]
+      artists: ["Arctic Monkeys", "Coldplay", "Imagine Dragons", "Linkin Park"]
     },
     {
       group: "D",
-      artists: ["Kanye West", "Kendrick Lamar", "Drake", "Eminem"]
+      artists: ["Ed Sheeran", "Lana Del Rey", "Justin Bieber", "Selena Gomez"]
     },
     {
       group: "E",
-      artists: ["Coldplay", "Maroon 5", "Arctic Monkeys", "One Direction"]
+      artists: ["JVKE", "The 1975", "21 Savage", "J.Cole"]
     },
     {
       group: "F",
-      artists: ["Imagine Dragons", "Linkin Park", "BTS", "BLACKPINK"]
-    },
-    {
-      group: "G",
-      artists: ["Charlie Puth", "Travis Scott", "Ed Sheeran", "Lana Del Rey"]
-    },
-    {
-      group: "H",
-      artists: ["Ariana Grande", "Selena Gomez", "Justin Bieber", "Bruno Mars"]
-    },
-    {
-      group: "I",
-      artists: ["JVKE", "The 1975", "Conan Gray", "Joji"]
-    },
-    {
-      group: "J",
-      artists: ["Metro Boomin", "J.Cole", "21 Savage", "Future"]
-    },
-    {
-      group: "K",
-      artists: ["Daft Punk", "Tame Impala", "Fred Again", "Kygo"]
-    },
-    {
-      group: "L",
-      artists: ["SZA", "Shakira", "Bad Bunny", "Rihanna"]
+      artists: ["Tame Impala", "Daft Punk", "Shakira", "Rihanna"]
     }
   ]
   const [currentGroup, setCurrentGroup] = useState(0)
@@ -113,7 +89,7 @@ function App() {
   }
 
   const [picks, setPicks] = useState({})
-  const votingClosed = true
+  const votingClosed = false;
   return (
     <>
       <Navbar />
@@ -146,7 +122,7 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 md:px-0 overflow-x-hidden bg-[linear-gradient(180deg,#fafafa_0%,#f4f4f5_50%,#fafafa_100%)]">
+            <div className="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center px-4 md:px-0 overflow-x-hidden bg-[linear-gradient(180deg,#fafafa_0%,#f4f4f5_50%,#fafafa_100%)]">
               {votingClosed ? (
                 <div className="bg-white p-6 md:p-10 rounded-lg shadow-xl text-center w-full max-w-md">
                   <h2 className="text-xl font-semibold text-zinc-800">
@@ -163,30 +139,35 @@ function App() {
                   </p>
                 </div>
               ) : (
-                <div className="flex flex-col w-full max-w-3xl">
-                  <div className="w-full mb-6">
-                    <div className="flex justify-between text-xs text-zinc-500 mb-2">
-                      <span>Group {currentGroup + 1}</span>
-                      <span>{groups.length} total</span>
-                    </div>
-
-                    <div className="h-2 bg-zinc-200 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-zinc-900 transition-all duration-300"
-                        style={{ width: `${((currentGroup + 1) / groups.length) * 100}%` }}
-                      />
-                    </div>
+                <>
+                  <div className="mb-4 text-2xl md:text-3xl font-[Poiret One] text-center">
+                    Round 2
                   </div>
+                  <div className="flex flex-col w-full max-w-3xl">
+                    <div className="w-full mb-6">
+                      <div className="flex justify-between text-xs text-zinc-500 mb-2">
+                        <span>Group {currentGroup + 1}</span>
+                        <span>{groups.length} total</span>
+                      </div>
 
-                  <GroupCard
-                    group={groups[currentGroup].group}
-                    artists={groups[currentGroup].artists}
-                    onNext={nextGroup}
-                    onPrev={prevGroup}
-                    onSubmit={submitPicks}
-                    loading={loading}
-                  />
-                </div>
+                      <div className="h-2 bg-zinc-200 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-zinc-900 transition-all duration-300"
+                          style={{ width: `${((currentGroup + 1) / groups.length) * 100}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    <GroupCard
+                      group={groups[currentGroup].group}
+                      artists={groups[currentGroup].artists}
+                      onNext={nextGroup}
+                      onPrev={prevGroup}
+                      onSubmit={submitPicks}
+                      loading={loading}
+                    />
+                  </div>
+                </>
               )}
             </div>
           }
