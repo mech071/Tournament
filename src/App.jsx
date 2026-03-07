@@ -77,7 +77,7 @@ function App() {
   }
 
   const [picks, setPicks] = useState({})
-  const votingClosed = false;
+  const votingClosed = true;
   return (
     <>
       <Navbar/>
