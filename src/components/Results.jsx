@@ -46,7 +46,7 @@ const Results = () => {
                                 .map(([artist, votes], index) => (
                                     <div
                                         key={artist}
-                                        className={`flex justify-between border-b pb-1 text-zinc-700 ${index < 2 ? "bg-purple-200 font-semibold rounded-sm" : ""}`}
+                                        className={`flex justify-between border-b pb-1 text-zinc-700 ${index < 1 ? "bg-purple-200 font-semibold rounded-sm" : ""}`}
                                     >
                                         <span>{artist}</span>
                                         <span>{votes}</span>
