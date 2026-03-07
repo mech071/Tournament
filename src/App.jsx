@@ -69,10 +69,10 @@ function App() {
   }
 
   const [picks, setPicks] = useState({})
-  const votingClosed = false;
+  const votingClosed = true;
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route
           path="/"
@@ -103,13 +103,7 @@ function App() {
           path="/dashboard"
           element={
             <div className="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center px-4 md:px-0 overflow-x-hidden bg-[linear-gradient(180deg,#fafafa_0%,#f4f4f5_50%,#fafafa_100%)]">
-              {votingClosed ? (
-                <div className="bg-white p-6 md:p-10 rounded-lg shadow-xl text-center w-full max-w-md">
-                  <h2 className="text-xl font-semibold text-zinc-800">
-                    Votings have been closed
-                  </h2>
-                </div>
-              ) : submitted ? (
+              {submitted ? (
                 <div className="bg-white p-6 md:p-10 rounded-lg shadow-xl text-center w-full max-w-md ease-out animate-[fadeIn_0.6s]">
                   <h2 className="text-xl font-semibold text-zinc-800">
                     Vote submitted successfully
@@ -154,12 +148,27 @@ function App() {
         />
         <Route
           path="/results"
-          element={submitted ? <Results /> : <>
-            <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 md:px-0 bg-[linear-gradient(180deg,#fafafa_0%,#f4f4f5_50%,#fafafa_100%)]">
-              <div className="bg-white p-6 md:p-10 rounded-lg shadow-xl text-center w-full max-w-md">Submit your vote first.
+          element={
+            votingClosed ? (
+              <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 sm:px-6">
+                <div className="bg-white p-6 sm:p-8 md:p-10 rounded-lg shadow-xl text-center w-full max-w-md">
+                  <h2 className="text-base sm:text-lg md:text-xl font-semibold text-zinc-800 break-words">
+                    Results will be visible after round ends
+                  </h2>
+                </div>
               </div>
-            </div>
-          </>}
+            ) : submitted ? (
+              <Results />
+            ) : (
+              <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 sm:px-6">
+                <div className="bg-white p-6 sm:p-8 md:p-10 rounded-lg shadow-xl text-center w-full max-w-md">
+                  <p className="text-sm sm:text-base md:text-lg">
+                    Submit your vote first.
+                  </p>
+                </div>
+              </div>
+            )
+          }
         />
       </Routes >
       <Footer />
@@ -167,3 +176,4 @@ function App() {
   )
 }
 export default App
+
