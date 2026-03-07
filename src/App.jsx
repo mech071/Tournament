@@ -9,27 +9,15 @@ function App() {
   const groups = [
     {
       group: "A",
-      artists: ["Arijit Singh", "Eminem"]
+      artists: ["Justin Bieber", "Ed Sheeran"]
     },
     {
       group: "B",
-      artists: ["Dua Lipa", "Taylor Swift"]
+      artists: ["Shakira", "Arijit Singh"]
     },
     {
       group: "C",
-      artists: ["Coldplay", "Justin Bieber"]
-    },
-    {
-      group: "D",
-      artists: ["Ed Sheeran", "Arctic Monkeys"]
-    },
-    {
-      group: "E",
-      artists: ["The 1975", "Rihanna"]
-    },
-    {
-      group: "F",
-      artists: ["Shakira", "21 Savage"]
+      artists: ["Rihanna", "Taylor Swift"]
     }
   ]
   const [currentGroup, setCurrentGroup] = useState(0)
@@ -43,7 +31,7 @@ function App() {
   }
 
   useEffect(() => {
-    const voted = localStorage.getItem("voted_r3")
+    const voted = localStorage.getItem("voted_r4")
     if (voted) {
       setSubmitted(true)
     }
@@ -80,7 +68,7 @@ function App() {
 
       setSubmitted(true)
       setLoading(false)
-      localStorage.setItem("voted_r3", "true")
+      localStorage.setItem("voted_r4", "true")
 
     } catch (err) {
       console.error(err)
@@ -89,10 +77,10 @@ function App() {
   }
 
   const [picks, setPicks] = useState({})
-  const votingClosed = true;
+  const votingClosed = false;
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <Routes>
         <Route
           path="/"
@@ -126,7 +114,7 @@ function App() {
               {votingClosed ? (
                 <div className="bg-white p-6 md:p-10 rounded-lg shadow-xl text-center w-full max-w-md">
                   <h2 className="text-xl font-semibold text-zinc-800">
-                    Voting has been closed
+                    Votings have been closed
                   </h2>
                 </div>
               ) : submitted ? (
@@ -141,7 +129,7 @@ function App() {
               ) : (
                 <>
                   <div className="mb-4 text-2xl md:text-3xl font-[Poiret One] text-center">
-                    Quarter Finals
+                    Semi Finals
                   </div>
                   <div className="flex flex-col w-full max-w-3xl">
                     <div className="w-full mb-6">
