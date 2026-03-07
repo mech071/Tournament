@@ -9,15 +9,7 @@ function App() {
   const groups = [
     {
       group: "A",
-      artists: ["Justin Bieber", "Ed Sheeran"]
-    },
-    {
-      group: "B",
-      artists: ["Shakira", "Arijit Singh"]
-    },
-    {
-      group: "C",
-      artists: ["Rihanna", "Taylor Swift"]
+      artists: ["Arijit Singh", "Ed Sheeran", "Taylor Swift"]
     }
   ]
   const [currentGroup, setCurrentGroup] = useState(0)
@@ -77,7 +69,7 @@ function App() {
   }
 
   const [picks, setPicks] = useState({})
-  const votingClosed = true;
+  const votingClosed = false;
   return (
     <>
       <Navbar/>
@@ -129,7 +121,7 @@ function App() {
               ) : (
                 <>
                   <div className="mb-4 text-2xl md:text-3xl font-[Poiret One] text-center">
-                    Semi Finals
+                    Finals
                   </div>
                   <div className="flex flex-col w-full max-w-3xl">
                     <div className="w-full mb-6">
