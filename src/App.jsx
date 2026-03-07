@@ -152,8 +152,8 @@ function App() {
             votingClosed ? (
               <div className="min-h-[calc(100vh-64px)] flex items-center justify-center px-4 sm:px-6">
                 <div className="bg-white p-6 sm:p-8 md:p-10 rounded-lg shadow-xl text-center w-full max-w-md">
-                  <h2 className="text-base sm:text-lg md:text-xl font-semibold text-zinc-800 break-words">
-                    Results will be visible after round ends
+                  <h2 className="text-base sm:text-lg md:text-xl font-semibold text-zinc-800 wrap-break-word">
+                    Results will be visible after the round ends
                   </h2>
                 </div>
               </div>
