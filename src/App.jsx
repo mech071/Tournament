@@ -9,27 +9,27 @@ function App() {
   const groups = [
     {
       group: "A",
-      artists: ["Arijit Singh", "The Weeknd", "Taylor Swift", "Billie Eilish"]
+      artists: ["Arijit Singh", "Eminem"]
     },
     {
       group: "B",
-      artists: ["Dua Lipa", "Lady Gaga", "Eminem", "Kendrick Lamar"]
+      artists: ["Dua Lipa", "Taylor Swift"]
     },
     {
       group: "C",
-      artists: ["Arctic Monkeys", "Coldplay", "Imagine Dragons", "Linkin Park"]
+      artists: ["Coldplay", "Justin Bieber"]
     },
     {
       group: "D",
-      artists: ["Ed Sheeran", "Lana Del Rey", "Justin Bieber", "Selena Gomez"]
+      artists: ["Ed Sheeran", "Arctic Monkeys"]
     },
     {
       group: "E",
-      artists: ["JVKE", "The 1975", "21 Savage", "J.Cole"]
+      artists: ["The 1975", "Rihanna"]
     },
     {
       group: "F",
-      artists: ["Tame Impala", "Daft Punk", "Shakira", "Rihanna"]
+      artists: ["Shakira", "21 Savage"]
     }
   ]
   const [currentGroup, setCurrentGroup] = useState(0)
@@ -43,7 +43,7 @@ function App() {
   }
 
   useEffect(() => {
-    const voted = localStorage.getItem("voted_r2")
+    const voted = localStorage.getItem("voted_r3")
     if (voted) {
       setSubmitted(true)
     }
@@ -80,7 +80,7 @@ function App() {
 
       setSubmitted(true)
       setLoading(false)
-      localStorage.setItem("voted_r2", "true")
+      localStorage.setItem("voted_r3", "true")
 
     } catch (err) {
       console.error(err)
@@ -89,7 +89,7 @@ function App() {
   }
 
   const [picks, setPicks] = useState({})
-  const votingClosed = true;
+  const votingClosed = false;
   return (
     <>
       <Navbar />
@@ -126,7 +126,7 @@ function App() {
               {votingClosed ? (
                 <div className="bg-white p-6 md:p-10 rounded-lg shadow-xl text-center w-full max-w-md">
                   <h2 className="text-xl font-semibold text-zinc-800">
-                    Voting has closed
+                    Voting has been closed
                   </h2>
                 </div>
               ) : submitted ? (
@@ -141,7 +141,7 @@ function App() {
               ) : (
                 <>
                   <div className="mb-4 text-2xl md:text-3xl font-[Poiret One] text-center">
-                    Round 2
+                    Quarter Finals
                   </div>
                   <div className="flex flex-col w-full max-w-3xl">
                     <div className="w-full mb-6">

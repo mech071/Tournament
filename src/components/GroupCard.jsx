@@ -52,7 +52,7 @@ const GroupCard = ({ group, artists, onNext, onPrev, onSubmit, loading }) => {
                     </button>
 
                     <button
-                        disabled={selected.length !== 2}
+                        disabled={selected.length !== 1}
                         hidden={group === "F"}
                         onClick={() => onNext(group, selected)}
                         className="bg-black text-white px-4 py-3 md:py-2 rounded disabled:opacity-50 flex-1 cursor-pointer transition duration-500 hover:bg-neutral-900 shadow-md shadow-zinc-800"
@@ -62,7 +62,7 @@ const GroupCard = ({ group, artists, onNext, onPrev, onSubmit, loading }) => {
 
                     {group === "F" && (
                         <button
-                            disabled={selected.length !== 2 || loading}
+                            disabled={selected.length !== 1 || loading}
                             onClick={() => { if (!loading) onSubmit(group, selected) }}
                             className="bg-black text-white px-4 py-3 md:py-2 rounded disabled:opacity-50 flex-1 cursor-pointer transition duration-500 hover:bg-neutral-900 shadow-md shadow-zinc-800"
                         >
